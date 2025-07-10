@@ -19,15 +19,13 @@
         @foreach ($tasks as $task)
           <tr>
             <td><a class="link link-hover text-info" href="{{ route('tasks.show', $task->id) }}">{{ $task->id }}</a></td>
-            <td>{{ $task->status }}</td>
-            <td>{{ $task->content }}</td>
+            <td><p class="mb-0">{!! nl2br(e($task->status)) !!}</p></td>
+            <td><p class="mb-0">{!! nl2br(e($task->content)) !!}</p></td>
           </tr>
         @endforeach
       </tbody>
     </table>
   @endif
-
-   {{-- タスク作成ページへのリンク --}}
-    <a class="btn btn-primary" href="{{ route('tasks.create') }}">新規タスクの作成</a>
-
+  {{-- タスク作成ページへのリンク --}}
+  <a class="btn btn-primary" href="{{ route('tasks.create') }}">新規タスクの作成</a>
 @endsection
